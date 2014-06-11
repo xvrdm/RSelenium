@@ -13,7 +13,7 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>Rselenium by johndharrison</title>
+    <title>Rselenium by ropensci</title>
   </head>
 
   <body>
@@ -21,63 +21,145 @@
       <div class="inner">
         <h1>Rselenium</h1>
         <h2>An R client for Selenium Remote Webdriver</h2>
-        <a href="https://github.com/johndharrison/RSelenium" class="button"><small>View project on</small>GitHub</a>
+        <a href="https://github.com/ropensci/RSelenium" class="button"><small>View project on</small>GitHub</a>
       </div>
     </header>
 
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+          <h1>
+<a name="r-bindings-for-selenium-20-remote-webdriver" class="anchor" href="#r-bindings-for-selenium-20-remote-webdriver"><span class="octicon octicon-link"></span></a>R Bindings for Selenium 2.0 Remote WebDriver</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<h4>
+<a name="travis-build-status" class="anchor" href="#travis-build-status"><span class="octicon octicon-link"></span></a>Travis build status</h4>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<p><a href="https://travis-ci.org/ropensci/RSelenium"><img src="https://travis-ci.org/ropensci/RSelenium.svg?branch=master" alt="Build Status"></a></p>
+
+<h4>
+<a name="selenium-test-status" class="anchor" href="#selenium-test-status"><span class="octicon octicon-link"></span></a>Selenium test status</h4>
+
+<p><a href="https://saucelabs.com/u/rselenium0"><img src="https://saucelabs.com/buildstatus/rselenium0" alt="Selenium Test Status"></a></p>
+
+<p><a href="https://saucelabs.com/u/rselenium0"><img src="https://saucelabs.com/browser-matrix/rselenium0.svg" alt="Selenium Test Status"></a></p>
+
+<p>This is a set of R Bindings for Selenium 2.0 Remote WebDriver, which you
+can download from <a href="http://selenium-release.storage.googleapis.com/index.html">http://selenium-release.storage.googleapis.com/index.html</a> .This binding will not work with the
+1.0 version of Selenium.</p>
+
+<h3>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h3>
+
+<p>To install RSelenium from CRAN run install.packages('RSelenium'). If you require the development version you will need the devtools package. If necessary (install.packages("devtools")) and run:</p>
+
+<pre><code>devtools::install_github("RSelenium", "johndharrison")
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>To get started using <code>RSelenium</code> you can look at the introduction vignette located 
+in <code>/doc/RSelenium-basics.html</code> once <code>RSelenium</code> is installed or run</p>
+
+<pre><code>
+vignette('RSelenium-basics')
+
+</code></pre>
+
+<p>or the basic vignette can be viewed on <a href="http://rpubs.com/johndharrison/12843">Rpubs</a>.</p>
+
+<p>There is a second vignette dealing with running RSelenium on different browsers/OS locally and remotely which can be viewed at <a href="http://rpubs.com/johndharrison/13885">RSelenium: Driving OS/Browsers local and remote</a>. Finally you can read all about running a headless browser or running a normal browser on a headless server <a href="http://rpubs.com/johndharrison/RSelenium-headless">RSelenium: Headless browsing.</a>.</p>
+
+<h4>
+<a name="summary-of-vignettes" class="anchor" href="#summary-of-vignettes"><span class="octicon octicon-link"></span></a>Summary of vignettes</h4>
+
+<ol>
+<li> <a href="http://rpubs.com/johndharrison/12843">RSelenium: basics</a>
+</li>
+<li> <a href="http://rpubs.com/johndharrison/13885">RSelenium: Driving OS/Browsers local and remote</a>
+</li>
+<li> <a href="http://rpubs.com/johndharrison/13408">RSelenium: Testing Shiny Apps</a>
+</li>
+<li> <a href="http://johndharrison.blogspot.com/2014/05/orange-county-r-users-group-oc-rug.html">Orange County R Users Group (OC-RUG): RSelenium Webinar</a>
+</li>
+<li> <a href="http://rpubs.com/johndharrison/RSelenium-headless">RSelenium: Headless browsing.</a>
+</li>
+</ol><h3>
+<a name="test-shiny-apps" class="anchor" href="#test-shiny-apps"><span class="octicon octicon-link"></span></a>Test Shiny Apps</h3>
+
+<p>Use RSelenium to test your Shiny Apps.</p>
+
+<p>Read the introductory tutorial on <a href="http://rpubs.com/johndharrison/13408">Rpubs</a>.</p>
 
 <h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<a name="use-sauce-labs-and-browserstack" class="anchor" href="#use-sauce-labs-and-browserstack"><span class="octicon octicon-link"></span></a>Use Sauce Labs and BrowserStack</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<h4>
+<a name="sauce-labs" class="anchor" href="#sauce-labs"><span class="octicon octicon-link"></span></a>Sauce Labs</h4>
+
+<pre><code>user &lt;- "rselenium0"
+pass &lt;- "*******************************"
+port &lt;- 80
+ip &lt;- paste0(user, ':', pass, "@ondemand.saucelabs.com")
+browser &lt;- "firefox"
+version &lt;- "25"
+platform &lt;- "OS X 10.9"
+extraCapabilities &lt;- list(name = "Test RSelenium", username = user, accessKey = pass)
+
+remDr &lt;- remoteDriver$new(remoteServerAddr = ip, port = port, browserName = browser
+                          , version = version, platform = platform
+                          , extraCapabilities = extraCapabilities)
+</code></pre>
+
+<h4>
+<a name="browserstack" class="anchor" href="#browserstack"><span class="octicon octicon-link"></span></a>BrowserStack</h4>
+
+<pre><code>require(RSelenium)
+user &lt;- "johnharrison" 
+pass &lt;- "*******************"
+port &lt;- 80
+ip &lt;- paste0(user, ':', pass, "@hub.browserstack.com")
+extraCapabilities &lt;- list("browser" = "IE",
+                          "browser_version" = "7.0",
+                          "os" = "Windows",
+                          "os_version" = "XP",
+                          "browserstack.debug" = "true")
+remDr &lt;- remoteDriver$new(remoteServerAddr = ip, port = port
+                          , extraCapabilities = extraCapabilities)
+</code></pre>
 
 <h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>The RSelenium package is licensed under the <a href="http://www.tldrlegal.com/l/AGPL3" target="_blank">AGPLv3</a>. The help files are licensed under the creative commons attribution, non-commercial, share-alike license <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC-NC-SA</a>.</p>
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>As a summary, the AGPLv3 license requires, attribution, include copyright and license in copies of the software, state changes if you modify the code, and disclose all source code. Details are in the COPYING file.</p>
         </section>
 
         <aside id="sidebar">
-          <a href="https://github.com/johndharrison/RSelenium/zipball/master" class="button">
+          <a href="https://github.com/ropensci/RSelenium/zipball/master" class="button">
             <small>Download</small>
             .zip file
           </a>
-          <a href="https://github.com/johndharrison/RSelenium/tarball/master" class="button">
+          <a href="https://github.com/ropensci/RSelenium/tarball/master" class="button">
             <small>Download</small>
             .tar.gz file
           </a>
 
-          <p class="repo-owner"><a href="https://github.com/johndharrison/RSelenium"></a> is maintained by <a href="https://github.com/johndharrison">johndharrison</a>.</p>
+          <p class="repo-owner"><a href="https://github.com/ropensci/RSelenium"></a> is maintained by <a href="https://github.com/ropensci">ropensci</a>.</p>
 
           <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
         </aside>
       </div>
     </div>
 
-  
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-48179032-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
   </body>
 </html>
