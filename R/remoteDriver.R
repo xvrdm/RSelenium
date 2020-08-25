@@ -246,6 +246,7 @@ remoteDriver <-
         "Send a request to the remote server to instantiate the browser."
         if (!silent) print("Connecting to remote server")
 
+        browser()
         serverOpts <- list(
           desiredCapabilities =
             list(
@@ -268,15 +269,15 @@ remoteDriver <-
 
         # fudge for sauceLabs not having /sessions
         sessionInfo <<- value
-        # if (is.na(sessionid)) {
-        #   # fix for problem with sauceLab when calling internet explorer
-        #   sessionInfo$id <<- sub(".*hub/session/(.*)",
-        #                          "\\1", responseheader$Location)
-        #   sessionInfo <<- getSession()
-        #   sessionInfo$id <<- sessionid
-        # } else {
+         if (is.na(sessionid)) {
+           # fix for problem with sauceLab when calling internet explorer
+           sessionInfo$id <<- sub(".*hub/session/(.*)",
+                                  "\\1", responseheader$Location)
+           sessionInfo <<- getSession()
+           sessionInfo$id <<- sessionid
+         } else {
         sessionInfo$id <<- sessionid
-        # }
+         }
         if (!silent) print(sessionInfo)
         #
       },
